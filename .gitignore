@@ -1,11 +1,31 @@
-.DS_Store
+# On Mac (repo root)
+cat > .gitignore <<'EOF'
+# Vivado
+*.xpr
 *.jou
 *.log
 *.str
-*.vcd
+*.pb
 *.wdb
-.xil/
-.cache/
-.hw/
-.ip_user_files/
-.sim/
+*.dcp
+*.rpt
+*.bit
+*.bin
+*.ltx
+*.cache/
+*.runs/
+*.sim/
+*.ip_user_files/
+*.hw/
+*.srcs/
+*.gen/
+*.webtalk/
+# Crash dumps
+hs_err_pid*.log
+# Build dirs
+build/
+EOF
+
+git add .gitignore
+git commit -m "Ignore Vivado artifacts"
+git push
