@@ -26,6 +26,3 @@ hs_err_pid*.log
 build/
 EOF
 
-git add .gitignore
-git commit -m "Ignore Vivado artifacts"
-git push
