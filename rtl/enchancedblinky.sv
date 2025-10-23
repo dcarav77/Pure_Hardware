@@ -3,8 +3,8 @@ module blinky_lut (
     input  logic        rst,     // reset button (center)
     input  logic        btnu,
     input  logic        btnd,
-    output logic [15:0] leds,    // all 16 leds
-    //output logic        led0
+    output logic [15:0] leds
+  
 );
 
     //Up button
@@ -101,8 +101,9 @@ module blinky_lut (
     // 5) Outputs
     //assign led0     = led_q;                          // blinker
     assign leds[0]  = led0;                           // show blinker on LED0
-    assign leds[15:1] = (15'h1 << speed_index);       // cursor style
     
-    // assign leds[15:1] = (15'h7FFF >> (15 - speed_index)); // bar graph style
+    
+    //assign leds[15:1] = (15'h1 << speed_index);       // cursor style
+    
 
 endmodule
