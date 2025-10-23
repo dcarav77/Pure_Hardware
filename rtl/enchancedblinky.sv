@@ -98,12 +98,8 @@ module blinky_lut (
         end
     end
 
-    // 5) Outputs
-    //assign led0     = led_q;                          // blinker
-    assign leds[0]  = led0;                           // show blinker on LED0
-    
-    
-    //assign leds[15:1] = (15'h1 << speed_index);       // cursor style
-    
-
+    // 5) Outputs                     
+    assign leds[0] = led_q; 
+    assign leds[15:1] = '0; 
+  
 endmodule
