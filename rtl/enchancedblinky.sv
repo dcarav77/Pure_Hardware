@@ -4,7 +4,7 @@ module blinky_lut (
     input  logic        btnu,
     input  logic        btnd,
     output logic [15:0] leds,    // all 16 leds
-    output logic        led0
+    //output logic        led0
 );
 
     //Up button
@@ -92,12 +92,14 @@ module blinky_lut (
                 count          <= 32'd0;              //Yes? Reset stop counter to zero
                 led_q          <= ~led_q;             //Toggle LED (on->off, off-> on)
                 current_target <= target_next;        //Swich to the newly requested route
+            end else begin
+                count <= count + 1;
             end
         end
     end
 
     // 5) Outputs
-    assign led0     = led_q;                          // blinker
+    //assign led0     = led_q;                          // blinker
     assign leds[0]  = led0;                           // show blinker on LED0
     assign leds[15:1] = (15'h1 << speed_index);       // cursor style
     
