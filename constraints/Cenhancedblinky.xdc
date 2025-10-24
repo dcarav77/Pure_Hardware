@@ -1,3 +1,7 @@
+# ==== Basys-3 Configuration Voltage Settings ====
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+
 ## ==== Clock (100 MHz) ====
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
