@@ -14,20 +14,32 @@ set_property IOSTANDARD LVCMOS33 [get_ports uart_rx]
 set_property PACKAGE_PIN U19 [get_ports uart_tx]
 set_property IOSTANDARD LVCMOS33 [get_ports uart_tx]
 
-## 7-Segment Display (Common Anode)
-# Segment signals (active low)
+## ==== 7-Segment Segments (active low) ====
 set_property PACKAGE_PIN W7 [get_ports {seg[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[0]}]
+
 set_property PACKAGE_PIN W6 [get_ports {seg[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[1]}]
+
 set_property PACKAGE_PIN U8 [get_ports {seg[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[2]}]
+
 set_property PACKAGE_PIN V8 [get_ports {seg[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[3]}]
+
 set_property PACKAGE_PIN U5 [get_ports {seg[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[4]}]
+
 set_property PACKAGE_PIN V5 [get_ports {seg[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[5]}]
+
 set_property PACKAGE_PIN U7 [get_ports {seg[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[6]}]
+
 set_property PACKAGE_PIN V7 [get_ports {seg[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[7]}]
 
-set_property IOSTANDARD LVCMOS33 [get_ports {seg[7:0]}]
-
-# Digit enable signals (active low)
+## ==== 7-Segment Digit Enables (active low) ====
 set_property PACKAGE_PIN U2 [get_ports {an[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {an[0]}]
 
