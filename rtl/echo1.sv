@@ -136,7 +136,7 @@ end
 // Map A-G to 7-seg (active-low)
 always_comb begin  // Combinational = No clock = No memory = instantly react to input
     
-    an  = 4'b1110;     x// Only rightmost digit ON
+    an  = 4'b1110;     // Only rightmost digit ON
    
 
     // enable rightmost digit
