@@ -4,7 +4,8 @@ module uart_echo (
     output logic uart_tx,
     input  logic uart_rx,
     output logic [7:0] seg,  // segments a..g (active-low)
-    output logic [3:0] an    // digit enables (active -low)
+    output logic [3:0] an,    // digit enables (active -low)
+    output logic led
     
 );
 
@@ -143,14 +144,14 @@ always_comb begin  // Combinational = No clock = No memory = instantly react to 
     an = 4'b1110;
 
     case (rx_last_char)     //rx_last_char (signal)
-    "A": seg = 7'b0001000;
-    "B": seg = 7'b1100000;
-    "C": seg = 7'b0110001;
-    "D": seg = 7'b1000010;
-    "E": seg = 7'b0110000;
-    "F": seg = 7'b0111000;
-    "G": seg = 7'b0000100;
-        default: seg = 7'b1111111; //off
+        "A": seg = 8'b10001000; 
+        "B": seg = 8'b11100000;  
+        "C": seg = 8'b10110001;
+        "D": seg = 8'b11000100;
+        "E": seg = 8'b10110000;
+        "F": seg = 8'b10111000;
+        "G": seg = 8'b10001100;
+        default: seg = 8'b11111111; //off
     endcase 
 end
 
@@ -199,5 +200,7 @@ always_ff @(posedge clk) begin
     end
   end
 end
+
+assign led = rx_valid;
 
 endmodule
