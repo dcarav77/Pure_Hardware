@@ -55,3 +55,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {an[3]}]
 ## ==== Reset Button (BTNC) ====
 set_property PACKAGE_PIN U18 [get_ports rst]
 set_property IOSTANDARD LVCMOS33 [get_ports rst]
+
+## ==== Debug LED ====
+set_property PACKAGE_PIN U16 [get_ports led]
+set_property IOSTANDARD LVCMOS33 [get_ports led]
