@@ -201,6 +201,6 @@ always_ff @(posedge clk) begin
   end
 end
 
-assign led = rx_valid;
+assign led = rx_busy || rx_valid;
 
 endmodule
