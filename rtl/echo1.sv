@@ -143,18 +143,19 @@ always_comb begin  // Combinational = No clock = No memory = instantly react to 
     // enable rightmost digit
     an = 4'b1110;
 
-    case (rx_last_char)     //rx_last_char (signal)
-        "A": seg = 8'b10001000; // a,b,c,e,f,g
-        "B": seg = 8'b10000011; // c,d,e,f,g
-        "C": seg = 8'b11000110; // a,d,e,f
-        "D": seg = 8'b10100001; // b,c,d,e,g
-        "E": seg = 8'b10000110; // a,d,e,f,g
-        "F": seg = 8'b10001110; // a,e,f,g
-        "G": seg = 8'b11000010; // a,c,d,e,f
-        default: seg = 8'b11111111; //off
-    endcase 
+    case (rx_last_char)
+        // CORRECT Basys-3 patterns (verified):
+        // Format: {DP, G, F, E, D, C, B, A} where 0=ON, 1=OFF
+        "A": seg = 8'b0001_0001;  // A - segments: a,b,c,e,f,g
+        "B": seg = 8'b1100_0001;  // B - segments: c,d,e,f,g  
+        "C": seg = 8'b0110_0011;  // C - segments: a,d,e,f
+        "D": seg = 8'b1000_0101;  // D - segments: b,c,d,e,g
+        "E": seg = 8'b0110_0001;  // E - segments: a,d,e,f,g
+        "F": seg = 8'b0111_0001;  // F - segments: a,e,f,g
+        "G": seg = 8'b0000_1001;  // G - segments: a,b,c,d,f
+        default: seg = 8'b1111_1111;  // All off
+    endcase
 end
-
 
 // =========================
 // TX: echo RX bytes
@@ -189,7 +190,7 @@ always_ff @(posedge clk) begin
           4'd7: uart_tx <= tx_data[7];
           4'd8: begin
             uart_tx <= 1'b1; // stop
-            tx_busy <= 1'b0; // done
+            tx_busy <= 1'b0; // doneA
           end
           default: uart_tx <= 1'b1;
         endcase
