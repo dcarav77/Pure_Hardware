@@ -144,13 +144,13 @@ always_comb begin  // Combinational = No clock = No memory = instantly react to 
     an = 4'b1110;
 
     case (rx_last_char)     //rx_last_char (signal)
-        "A": seg = 8'b10001000; 
-        "B": seg = 8'b11100000;  
-        "C": seg = 8'b10110001;
-        "D": seg = 8'b11000100;
-        "E": seg = 8'b10110000;
-        "F": seg = 8'b10111000;
-        "G": seg = 8'b10001100;
+        "A": seg = 8'b10001000; // a,b,c,e,f,g
+        "B": seg = 8'b10000011; // c,d,e,f,g
+        "C": seg = 8'b11000110; // a,d,e,f
+        "D": seg = 8'b10100001; // b,c,d,e,g
+        "E": seg = 8'b10000110; // a,d,e,f,g
+        "F": seg = 8'b10001110; // a,e,f,g
+        "G": seg = 8'b11000010; // a,c,d,e,f
         default: seg = 8'b11111111; //off
     endcase 
 end
