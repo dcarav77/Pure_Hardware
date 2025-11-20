@@ -61,10 +61,10 @@ module top_tb;
             null,
             "*",
             "vif",
-            "mif"
+             mif
         );
 
-        run_tes("uart_basic_test");
+        run_test("uart_basic_test");
     end
 
 // ----------------------------------------------------------
