@@ -26,3 +26,7 @@ hs_err_pid*.log
 build/
 EOF
 
+
+# OS + notes
+.DS_Store
+echoExplain.txt
