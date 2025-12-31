@@ -146,7 +146,7 @@ module async_fifo #(
             $display("❌ BUG: Writing when full!");
             $display(" Time: %0t, wr_ptr_gray: %h, rd_ptr_sync: %h",
             $time, wr_ptr_gray, rd_ptr_gray_sync2_w);
-            $finish
+            $finish;
         end
     end
 
@@ -156,7 +156,7 @@ module async_fifo #(
             $display("❌ BUG: Reading when empty!");
             $display(" Time: %0t, rd_ptr_gray: %h, wr_ptr_sync: %h",
             $time, rd_ptr_gray, wr_ptr_gray_sync2_r);
-            $finish
+            $finish;
         end
     end
 
